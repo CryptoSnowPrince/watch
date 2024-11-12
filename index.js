@@ -9,9 +9,7 @@ const multicall = '0xcA11bde05977b3631167028862bE2a173976CA11'
 async function main() {
     for (let i = 0; i < list.length; i++) {
         try {
-            console.log("chain: ", list[i].chain)
-            console.log("name: ", list[i].name)
-            console.log("account: ", list[i].account)
+            console.log(`${list[i].name}(${list[i].account}) on ${list[i].chain}`)
             const provider = new providers.JsonRpcProvider(list[i].rpc)
             const multicallCA = new Multicall({ ethersProvider: provider })
             const contracts = []
