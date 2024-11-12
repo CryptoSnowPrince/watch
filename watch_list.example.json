@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "account": "account",
+        "name": "name",
+        "chain": "Base",
+        "rpc": "https://rpc.com/",
+        "target": [
+            {
+                "name": "WETH",
+                "address": "0x4200000000000000000000000000000000000006",
+                "decimals": 18,
+                "price": 3300
+            }
+        ]
+    }
+]
