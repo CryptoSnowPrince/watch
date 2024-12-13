@@ -42,7 +42,7 @@ async function main() {
                 if (list[i].target[j].name.includes('USD')) {
                     usdSum += amount;
                 }
-                if (list[i]?.mark === "bepelive") {
+                if (list[i]?.mark) {
                     sum += amount;
                     item.push(amount.toFixed(3))
                 }
@@ -50,16 +50,16 @@ async function main() {
             }
         } catch (error) { }
     }
-    let bepeStr = `Bepe   ${sum.toFixed(3)} ETH (`
+    let validStr = `Valid   ${sum.toFixed(3)} ETH (`
     for(let i = 0; i < item.length; i++) {
         if(i === 0) {
-            bepeStr = `${bepeStr}${item[i]}`
+            validStr = `${validStr}${item[i]}`
         } else {
-            bepeStr = `${bepeStr}, ${item[i]}`
+            validStr = `${validStr}, ${item[i]}`
         }
     }
-    bepeStr = `${bepeStr})`
-    console.log(bepeStr)
+    validStr = `${validStr})`
+    console.log(validStr)
     console.log(`total ETH:   ${ethSum.toFixed(3)} ETH`)
     console.log(`total BNB:   ${bnbSum.toFixed(3)} BNB`)
     console.log(`total USD:   ${usdSum.toFixed(1)} USD`)
