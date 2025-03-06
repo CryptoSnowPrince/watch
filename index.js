@@ -33,16 +33,16 @@ async function main() {
             const results = await multicallCA.call(contracts);
             for (let j = 0; j < list[i].target.length; j++) {
                 const amount = parseFloat(utils.formatUnits(results.results[j].callsReturnContext[0].returnValues[0], list[i].target[j].decimals))
-                if (list[i].target[j].name.includes('ETH')) {
-                    ethSum += amount;
-                }
-                if (list[i].target[j].name.includes('BNB')) {
-                    bnbSum += amount;
-                }
-                if (list[i].target[j].name.includes('USD')) {
-                    usdSum += amount;
-                }
                 if (list[i]?.mark) {
+                    if (list[i].target[j].name.includes('ETH')) {
+                        ethSum += amount;
+                    }
+                    if (list[i].target[j].name.includes('BNB')) {
+                        bnbSum += amount;
+                    }
+                    if (list[i].target[j].name.includes('USD')) {
+                        usdSum += amount;
+                    }
                     sum += amount;
                     item.push(amount.toFixed(3))
                 }
@@ -50,7 +50,8 @@ async function main() {
             }
         } catch (error) { }
     }
-    let validStr = `Valid   ${sum.toFixed(3)} ETH (`
+    let validStr = `Valid (`
+    // let validStr = `Valid   ${sum.toFixed(3)} ETH (`
     for(let i = 0; i < item.length; i++) {
         if(i === 0) {
             validStr = `${validStr}${item[i]}`
